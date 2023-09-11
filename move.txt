@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while true: do 
+    mv file1.txt file2
+    mv file3 file4
+    echo "Files Swapped"  
+    read -p "Do you wish to continue?" yn
+    case $yn in 
+        ['Yy']* ) 
+            mv file2.txt file1.txt mv file4.txt file3.txt; break;;
+        ['Nn']* ) 
+            exit ;; 
+        *) echo "Please select yes or no" 
+    esac
+
