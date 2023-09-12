@@ -1,15 +1,29 @@
 #!/bin/bash
 
-while true: do 
-    mv file1.txt file2
-    mv file3 file4
-    echo "Files Swapped"  
+##storing directory paths in variables to improve readability
+FILE1=Desktop/file1.txt
+FILE2=Desktop/file2.txt
+FILE3=Desktop/file3.txt
+FILE4=Desktop/file4.txt
+
+##storing stage 2 (the swap back) in a function due to improve readability of code
+stage_two(){
     read -p "Do you wish to continue?" yn
     case $yn in 
         ['Yy']* ) 
-            mv file2.txt file1.txt mv file4.txt file3.txt; break;;
+            mv $FILE2 $FILE1 mv $FILE4 $FILE3; break;;
         ['Nn']* ) 
+            echo "Exiting"
             exit ;; 
         *) echo "Please select yes or no" 
     esac
-
+    echo "Files swapped back" 
+}
+##Script inits here, starts by verifying files exist, then executes first series of moves. 
+if [ -f "$FILE1" -a -f "$FILE3"]; 
+    then 
+        mv $FILE1 $FILE2;
+        mv $FILE3 $FILE4;
+        echo "Files Swapped";  
+        stage_two();
+fi
