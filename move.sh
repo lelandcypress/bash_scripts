@@ -6,7 +6,7 @@ FILE2=~/Desktop/file2.txt
 FILE3=~/Desktop/file3.txt
 FILE4=/~Desktop/file4.txt
 
-##storing stage 2 (the swap back) in a function due to improve readability of code
+##storing stage 2 (the swap back) in a function to improve readability of code
 stage_two(){
     read -p "Do you wish to continue?" yn
     case $yn in 
