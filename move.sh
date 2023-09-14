@@ -4,7 +4,9 @@
 FILE1=~/Desktop/file1.txt
 FILE2=~/Desktop/file2.txt
 FILE3=~/Desktop/file3.txt
-FILE4=/~Desktop/file4.txt
+FILE4=~/Desktop/file4.txt
+LogFile=~/Desktop/move.log
+dt=$(date '+%d/%m/%Y %H:%M:%S')
 
 ##storing stage 2 (the swap back) in a function to improve readability of code
 stage_two(){
@@ -25,4 +27,8 @@ if [ -f "$FILE1" -a -f "$FILE3" ];
         mv $FILE1 $FILE2 && mv $FILE3 $FILE4;
         echo "Files Swapped";  
         stage_two;
+    else
+        echo "Files not found"
 fi
+
+echo "$dt" > $LogFile 
